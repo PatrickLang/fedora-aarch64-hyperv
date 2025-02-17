@@ -14,10 +14,6 @@ Grabbed `aarch64` isos from https://openqa.fedoraproject.org/nightlies.html
 Had to disable secure boot - seems to not be signed.
 
 
-
-
-
-
 # Bugs
 
 ## No signed bootloader for aarch64
@@ -38,3 +34,16 @@ The initial text-mode menu comes up fine, but choosing either boot option hangs.
 
 ![boot hangs on just a cursor](boot-hang.png)
 
+
+
+### Getting more details
+
+At the boot menu, hit `e` to edit the command line. Remove `quiet`, then press f10.
+
+Things don't seem to be completely hung, but they are moving very slowly. Seeding the kernel RNG takes about 3-4 minutes. `vmmem` shows 50% CPU utilization for most of that time. I think that generally indicates that a lot of instructions need to be trapped and emulated which could definitely be the case if the Hyper-V drivers are missing.
+
+Eventually `systemd-udevd.service` fails to start repeatedly
+
+As for next steps, my best guess is that diffing the kconfig https://github.com/microsoft/WSL2-Linux-Kernel/blob/linux-msft-wsl-6.6.y/arch/arm64/configs/config-wsl-arm64 to that of Fedora's may provide some clues.
+
+![state after 10 minutes of booting](boot-10mins-failudev.png)
