@@ -42,6 +42,8 @@ https://discourse.ubuntu.com/t/ubuntu-24-10-concept-snapdragon-x-elite/48800/103
 
 ### Getting more details
 
+> Configured with 4 cores, 8GB of ram. (System has 8/16GB)
+
 At the boot menu, hit `e` to edit the command line. Remove `quiet`, then press f10.
 
 Things don't seem to be completely hung, but they are moving very slowly. Seeding the kernel RNG takes about 3-4 minutes. `vmmem` shows 50% CPU utilization for most of that time. I think that generally indicates that a lot of instructions need to be trapped and emulated which could definitely be the case if the Hyper-V drivers are missing.
@@ -56,6 +58,7 @@ As for next steps, my best guess is that diffing the kconfig https://github.com/
 
 ### Comparing to server
 
+> Configured with 4 cores, 8GB of ram. (System has 8/16GB)
 
 RNG took about 200s . Booting is very slow, seems to be stuck on `systemd-udev` consistent with workstation
 
@@ -64,3 +67,13 @@ RNG took about 200s . Booting is very slow, seems to be stuck on `systemd-udev` 
 ![second screenshot of server boot several minutes later](server-boot-2.png)
 
 ![third screenshot of server boot much later](server-boot-3.png)
+
+
+### Trying a single core
+
+This thread suggested things work OK with a single core assigned. 
+https://discourse.ubuntu.com/t/ubuntu-24-10-concept-snapdragon-x-elite/48800/461
+
+F42 Workstation boots fine
+![single core VM boots workstation](f42-workstation-1core.png)
+
