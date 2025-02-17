@@ -35,6 +35,10 @@ The initial text-mode menu comes up fine, but choosing either boot option hangs.
 ![boot hangs on just a cursor](boot-hang.png)
 
 
+A quick web search shows others have hit this on Ubuntu 24.10 as well under Hyper-V
+https://discourse.ubuntu.com/t/ubuntu-24-10-concept-snapdragon-x-elite/48800/103
+
+
 
 ### Getting more details
 
