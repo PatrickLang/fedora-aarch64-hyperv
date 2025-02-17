@@ -62,3 +62,5 @@ RNG took about 200s . Booting is very slow, seems to be stuck on `systemd-udev` 
 ![1st screenshot of server boot](server-boot-1.png)
 
 ![second screenshot of server boot several minutes later](server-boot-2.png)
+
+![third screenshot of server boot much later](server-boot-3.png)
