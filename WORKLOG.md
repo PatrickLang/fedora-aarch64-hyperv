@@ -47,3 +47,14 @@ Eventually `systemd-udevd.service` fails to start repeatedly
 As for next steps, my best guess is that diffing the kconfig https://github.com/microsoft/WSL2-Linux-Kernel/blob/linux-msft-wsl-6.6.y/arch/arm64/configs/config-wsl-arm64 to that of Fedora's may provide some clues.
 
 ![state after 10 minutes of booting](boot-10mins-failudev.png)
+
+
+
+### Comparing to server
+
+
+RNG took about 200s . Booting is very slow, seems to be stuck on `systemd-udev` consistent with workstation
+
+![1st screenshot of server boot](server-boot-1.png)
+
+![second screenshot of server boot several minutes later](server-boot-2.png)
